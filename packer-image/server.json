@@ -21,7 +21,7 @@
     "image_sku": "18.04-LTS",
 
     "managed_image_resource_group_name": "{{user `project-name`}}-images",
-    "managed_image_name": "myPackerImage",
+    "managed_image_name": "{{user `project-name`}}-image",
 
     "location": "westeurope",
     "vm_size": "Standard_B1ls"
