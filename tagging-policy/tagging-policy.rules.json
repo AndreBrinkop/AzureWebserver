@@ -1,0 +1,9 @@
+{
+    "if": {
+        "value": "[greaterOrEquals(length(field('tags')), 1)]",
+        "equals": "false"
+    },
+    "then": {
+        "effect": "deny"
+    }
+}
