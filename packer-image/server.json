@@ -6,30 +6,33 @@
 		"project-name": "webserver"
 	},
 	"builders": [{
-    "type": "azure-arm",
+		"type": "azure-arm",
 		"azure_tags": {
 			"project":"{{user `project-name`}}"
 		},
 
-    "client_id": "{{user `client_id`}}",
-    "client_secret": "{{user `client_secret`}}",
-    "subscription_id": "{{user `subscription_id`}}",
+		"client_id": "{{user `client_id`}}",
+		"client_secret": "{{user `client_secret`}}",
+		"subscription_id": "{{user `subscription_id`}}",
 
-    "os_type": "Linux",
-    "image_publisher": "Canonical",
-    "image_offer": "UbuntuServer",
-    "image_sku": "18.04-LTS",
+		"os_type": "Linux",
+		"image_publisher": "Canonical",
+		"image_offer": "UbuntuServer",
+		"image_sku": "18.04-LTS",
 
-    "managed_image_resource_group_name": "{{user `project-name`}}-images",
-    "managed_image_name": "{{user `project-name`}}-image",
+		"managed_image_resource_group_name": "{{user `project-name`}}-images",
+		"managed_image_name": "{{user `project-name`}}-image",
 
-    "location": "westeurope",
-    "vm_size": "Standard_B1ls"
-  }],
+		"location": "westeurope",
+		"vm_size": "Standard_B1ls"
+	}],
 	"provisioners": [{
 		"inline": [
-			"echo 'Hello, World!' > index.html",
-			"nohup busybox httpd -f -p 80 &"
+			"sudo apt-get update",
+			"sudo apt install apache2 -y",
+			"sudo chmod 777 /var/www/html/index.html",
+			"echo 'Hello, World!' > /var/www/html/index.html",
+			"sudo service apache2 start"
 		],
 		"inline_shebang": "/bin/sh -x",
 		"type": "shell"
