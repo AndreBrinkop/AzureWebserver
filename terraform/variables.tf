@@ -29,5 +29,4 @@ variable "vm_password" {
 
 variable "image_id" {
   description = "The id of the image used to provision the virtual machines"
-  default     = "/subscriptions/3b90dd9d-06bd-4e87-938b-ee80444ba20e/resourceGroups/webserver-images/providers/Microsoft.Compute/images/webserver-image"
 }
