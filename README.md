@@ -30,11 +30,11 @@ az policy assignment create --policy tagging-policy
 ```
 ##### Create Packer Image
 1. Create a `webserver-images` Resource Group for the Packer Image: `az group create -l westeurope -n webserver-images`
-1. Make sure you set up your credentials correctly as described in [getting started](### Getting Started)
+1. Make sure you set up your credentials correctly as described in [getting started](#getting-started).
 1. Build the image: `packer build packer-image/server.json`
 
 ##### Deploy resources using Terraform
-1. Make sure you set up your credentials correctly as described in [getting started](### Getting Started)
+1. Make sure you set up your credentials correctly as described in [getting started](#getting-started).
 1. Run `terraform plan --out terraform/solution.plan terraform/` to see what resources Terraform would create. You will be prompted to specify a password for the VMs that will be created.
 1. Run `terraform apply terraform/solution.plan terraform/` to create and deploy the resources. If everything runs successfully Terraform will print out the public IP for our web application.
 `
